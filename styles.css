@@ -546,6 +546,16 @@ body {
     .link-card i {
         font-size: 0.9rem;
     }
+    
+    .background::before,
+    .background::after {
+        font-size: 1.2rem;
+        animation: float-emoji 15s linear infinite;
+    }
+    
+    .tech-emoji {
+        font-size: 1rem;
+    }
 }
 
 /* Tablet devices */
@@ -562,6 +572,16 @@ body {
     .profile-img {
         width: 90px;
         height: 90px;
+    }
+    
+    .background::before,
+    .background::after {
+        font-size: 1.5rem;
+        animation: float-emoji 18s linear infinite;
+    }
+    
+    .tech-emoji {
+        font-size: 1.2rem;
     }
 }
 
@@ -599,6 +619,16 @@ body {
     .link-card i {
         font-size: 1.1rem;
     }
+    
+    .background::before,
+    .background::after {
+        font-size: 1.8rem;
+        animation: float-emoji 22s linear infinite;
+    }
+    
+    .tech-emoji {
+        font-size: 1.3rem;
+    }
 }
 
 /* Large screens */
@@ -633,6 +663,16 @@ body {
     
     .link-card i {
         font-size: 1.1rem;
+    }
+    
+    .background::before,
+    .background::after {
+        font-size: 2rem;
+        animation: float-emoji 25s linear infinite;
+    }
+    
+    .tech-emoji {
+        font-size: 1.5rem;
     }
 }
 
@@ -680,6 +720,16 @@ body {
     }
     
     .link-card i {
+        font-size: 0.8rem;
+    }
+    
+    .background::before,
+    .background::after {
+        font-size: 1rem;
+        animation: float-emoji 12s linear infinite;
+    }
+    
+    .tech-emoji {
         font-size: 0.8rem;
     }
 }
