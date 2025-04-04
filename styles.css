@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #0f172a;
+    --bg-color: #101418;
     --text-color: #e2e8f0;
     --card-bg: rgba(30, 41, 59, 0.7);
     --card-hover: rgba(51, 65, 85, 0.8);
@@ -27,6 +27,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise" x="0%" y="0%" width="100%" height="100%"><feTurbulence baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" type="fractalNoise"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .15 0"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+    background-size: 100px 100px;
     color: var(--text-color);
     min-height: 100vh;
     display: flex;
@@ -69,9 +71,9 @@ body {
 .gradient-sphere {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
-    animation: float 15s infinite alternate ease-in-out;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: float 30s infinite alternate ease-in-out;
 }
 
 .sphere1 {
@@ -304,7 +306,6 @@ body {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease;
-    animation: smoothFloat 6s ease-in-out infinite;
 }
 
 .profile:hover {
@@ -419,7 +420,6 @@ body {
     animation: fadeIn 0.8s ease-out forwards;
     animation-fill-mode: both;
     backdrop-filter: blur(8px);
-    animation: smoothFloat 6s ease-in-out infinite;
 }
 
 .link-card:hover {
@@ -552,7 +552,7 @@ body {
     }
     
     .profile {
-        animation: smoothFloat 8s ease-in-out infinite;
+        /* Removed smoothFloat animation adjustment */
     }
     
     .profile-img {
@@ -838,5 +838,154 @@ footer {
     50% {
         transform: scale(1.1);
         opacity: 1;
+    }
+}
+
+.tech-stack {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.tech-title {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+    gap: 1.25rem;
+    justify-items: center;
+    padding: 0.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.tech-item {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.tech-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+}
+
+.tech-item::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.tech-item:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tech-item:hover .tech-logo {
+    transform: scale(1.2);
+    filter: brightness(1);
+}
+
+/* Technology-specific colors */
+.tech-item[data-tooltip="HTML5"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(320deg) saturate(5); }
+.tech-item[data-tooltip="CSS3"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(200deg) saturate(5); }
+.tech-item[data-tooltip="JavaScript"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(50deg) saturate(5); }
+.tech-item[data-tooltip="C"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(180deg) saturate(2); }
+.tech-item[data-tooltip="C++"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(200deg) saturate(3); }
+.tech-item[data-tooltip="VS Code"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(200deg) saturate(4); }
+.tech-item[data-tooltip="Git"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(340deg) saturate(5); }
+.tech-item[data-tooltip="GitHub"] .tech-logo { filter: brightness(0.9); }
+.tech-item[data-tooltip="Vercel"] .tech-logo { filter: brightness(0.9); }
+.tech-item[data-tooltip="Framer"] .tech-logo { filter: brightness(0.9); /* Framer logo is often used in black/white */ }
+.tech-item[data-tooltip="ChatGPT"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(140deg) saturate(4); /* Teal-like color */ }
+.tech-item[data-tooltip="GitLab"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(340deg) saturate(6); /* Orange/Red color */ }
+.tech-item[data-tooltip="NPM"] .tech-logo { filter: brightness(0.9) sepia(1) hue-rotate(340deg) saturate(4); /* Red color */ }
+.tech-item[data-tooltip="Figma"] .tech-logo { filter: brightness(0.9); /* Figma has multiple colors, keep original or slight bright */ }
+.tech-item[data-tooltip="Cursor AI"] .tech-logo { filter: brightness(0.9); }
+
+/* General hover effect for ALL logos */
+.tech-item:hover .tech-logo {
+    transform: scale(1.2);
+    filter: brightness(1); /* Increase brightness for all on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .tech-stack {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .tech-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tech-grid {
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    }
+    
+    .tech-item {
+        width: 40px;
+        height: 40px;
+        padding: 0.4rem;
+    }
+    
+    .tech-item::before {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
+    }
+    
+    .tech-item {
+        width: 42px;
+        height: 42px;
+        padding: 0.45rem;
     }
 } 
