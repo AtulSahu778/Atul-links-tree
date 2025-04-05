@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atul Tree</title>
+    <link rel="icon" type="image/png" href="atulroundpic.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div class="background">
@@ -22,9 +24,9 @@
     </div>
     
     <div class="container">
-        <div class="profile glass-card">
+        <div class="profile glass-card flex flex-col md:items-center">
             <div class="profile-img">
-                <img src="atul.jpg" alt="Profile Picture" id="profile-picture">
+                <img src="atulroundpic.png" alt="Profile Picture" id="profile-picture">
             </div>
             <a href="https://instagram.com/ofc_atul" class="name-link" target="_blank" rel="noopener noreferrer">
                 <h1 class="name">Atul Sahu</h1>
@@ -109,6 +111,32 @@
                 </div>
             </div>
         </div>
+
+        <!-- Projects Section Start -->
+        <div class="projects mt-8 mb-8 px-4">
+            <h2 class="text-2xl font-semibold text-center text-slate-200 mb-6">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Project 1: Apple Clone -->
+                <a href="https://applebyatul.vercel.app/" target="_blank" rel="noopener noreferrer"
+                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 hover:bg-slate-700/80 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2"></span> Apple Clone</h3>
+                    <p class="text-slate-300 text-sm">A modern UI clone of the Apple website.</p>
+                </a>
+                <!-- Project 2: YouTube Clone -->
+                <a href="https://youtube-clone-atul.vercel.app/" target="_blank" rel="noopener noreferrer"
+                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 hover:bg-slate-700/80 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2"></span> YouTube Clone</h3>
+                    <p class="text-slate-300 text-sm">YouTube-inspired layout with search and video playback.</p>
+                </a>
+                <!-- Project 3: Amazon Clone -->
+                <a href="https://amazon-clone-atul-mu.vercel.app/" target="_blank" rel="noopener noreferrer"
+                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 hover:bg-slate-700/80 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2"></span> Amazon Clone</h3>
+                    <p class="text-slate-300 text-sm">E-commerce clone with product listing and cart features.</p>
+                </a>
+            </div>
+        </div>
+        <!-- Projects Section End -->
     </div>
     <script src="script.js"></script>
 </body>
