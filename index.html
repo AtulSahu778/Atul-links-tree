@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atul Tree</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Atul Sahu - Personal Linktree</title>
+    <meta name="description" content="Atul Sahu's personal link hub. Connect with me on GitHub, LinkedIn, Twitter, Instagram, and explore my projects.">
     <link rel="icon" type="image/png" href="atulroundpic.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="YOUR_WEBSITE_URL">
+    <meta property="og:title" content="Atul Sahu - Personal Linktree">
+    <meta property="og:description" content="Connect with Atul Sahu and explore projects.">
+    <meta property="og:image" content="atulroundpic.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="YOUR_WEBSITE_URL">
+    <meta property="twitter:title" content="Atul Sahu - Personal Linktree">
+    <meta property="twitter:description" content="Connect with Atul Sahu and explore projects.">
+    <meta property="twitter:image" content="atulroundpic.png">
+
+    <!-- Stylesheets & Fonts -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -15,129 +36,95 @@
         <div class="gradient-sphere sphere1"></div>
         <div class="gradient-sphere sphere2"></div>
         <div class="gradient-sphere sphere3"></div>
-        <div class="tech-emoji">💻</div>
-        <div class="tech-emoji">🚀</div>
-        <div class="tech-emoji">⚡️</div>
-        <div class="tech-emoji">🌐</div>
-        <div class="tech-emoji">⚛️</div>
-        <div class="tech-emoji">💡</div>
+        <div class="tech-emoji" aria-hidden="true">💻</div>
+        <div class="tech-emoji" aria-hidden="true">🚀</div>
+        <div class="tech-emoji" aria-hidden="true">⚡️</div>
+        <div class="tech-emoji" aria-hidden="true">🌐</div>
+        <div class="tech-emoji" aria-hidden="true">⚛️</div>
+        <div class="tech-emoji" aria-hidden="true">💡</div>
     </div>
     
-    <div class="container">
-        <div class="profile glass-card flex flex-col md:items-center">
-            <div class="profile-img">
-                <img src="atulroundpic.png" alt="Profile Picture" id="profile-picture">
+    <main class="container py-8 md:py-12">
+        <section class="profile glass-card flex flex-col items-center mb-8 md:mb-12 transition-transform duration-300 ease-out">
+            <div class="profile-img mb-4">
+                <img src="atulroundpic.png" alt="Atul Sahu profile picture" id="profile-picture" loading="lazy" decoding="async" class="transition-all duration-300 ease-out hover:shadow-lg hover:brightness-110">
             </div>
-            <a href="https://instagram.com/ofc_atul" class="name-link" target="_blank" rel="noopener noreferrer">
-                <h1 class="name">Atul Sahu</h1>
+            <a href="https://instagram.com/ofc_atul" class="name-link no-underline hover:underline" target="_blank" rel="noopener noreferrer">
+                <h1 class="name text-2xl md:text-3xl font-semibold mb-2">Atul Sahu</h1>
             </a>
-            <p class="bio">I build, I innovate, I lead. Tech isn't just what I do - it's who I am.</p>
-        </div>
+            <p class="bio text-center text-slate-300 px-4">I build, I innovate, I lead. Tech isn't just what I do - it's who I am.</p>
+        </section>
         
-        <div class="links">
-            <a href="https://github.com/AtulSahu778" class="link-card glass-card github" target="_blank" rel="noopener noreferrer">
-                <div class="icon-container">
-                    <i class="fab fa-github"></i>
+        <section class="links mb-8 md:mb-12 flex flex-col items-stretch gap-4">
+             <h2 class="sr-only">Social Links</h2>
+            <a href="https://github.com/AtulSahu778" class="link-card glass-card github flex items-center px-6 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md active:scale-95" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
+                <div class="icon-container mr-3">
+                    <i class="fab fa-github text-xl"></i>
                 </div>
-                <span>GitHub</span>
+                <span class="font-medium">GitHub</span>
             </a>
-            <a href="https://www.linkedin.com/in/atulsahu" class="link-card glass-card linkedin" target="_blank" rel="noopener noreferrer">
-                <div class="icon-container">
-                    <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/atulsahu" class="link-card glass-card linkedin flex items-center px-6 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md active:scale-95" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
+                <div class="icon-container mr-3">
+                    <i class="fab fa-linkedin text-xl"></i>
                 </div>
-                <span>LinkedIn</span>
+                <span class="font-medium">LinkedIn</span>
             </a>
-            <a href="https://twitter.com/Ofc_atul" class="link-card glass-card twitter" target="_blank" rel="noopener noreferrer">
-                <div class="icon-container">
-                    <i class="fab fa-twitter"></i>
+            <a href="https://twitter.com/Ofc_atul" class="link-card glass-card twitter flex items-center px-6 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md active:scale-95" target="_blank" rel="noopener noreferrer" aria-label="Visit my Twitter profile">
+                <div class="icon-container mr-3">
+                    <i class="fab fa-twitter text-xl"></i>
                 </div>
-                <span>Twitter</span>
+                <span class="font-medium">Twitter</span>
             </a>
-            <a href="https://instagram.com/ofc_atul" class="link-card glass-card instagram" target="_blank" rel="noopener noreferrer">
-                <div class="icon-container">
-                    <i class="fab fa-instagram"></i>
+            <a href="https://instagram.com/ofc_atul" class="link-card glass-card instagram flex items-center px-6 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md active:scale-95" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile">
+                <div class="icon-container mr-3">
+                    <i class="fab fa-instagram text-xl"></i>
                 </div>
-                <span>Instagram</span>
+                <span class="font-medium">Instagram</span>
             </a>
-        </div>
+        </section>
         
-        <div class="tech-stack glass-card">
-            <h3 class="tech-title">Tech Stack</h3>
-            <div class="tech-grid">
-                <div class="tech-item" data-tooltip="HTML5">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="CSS3">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="JavaScript">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="C">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="C++">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="VS Code">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="Git">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="GitHub">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="Vercel">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg" alt="Vercel" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="Framer">
-                    <img src="https://api.iconify.design/logos/framer.svg" alt="Framer" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="ChatGPT">
-                    <img src="https://api.iconify.design/logos/openai-icon.svg" alt="ChatGPT (OpenAI)" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="GitLab">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="NPM">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg" alt="NPM" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="Figma">
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" alt="Figma" class="tech-logo">
-                </div>
-                <div class="tech-item" data-tooltip="Cursor AI">
-                    <img src="https://cdn.brandfetch.io/ideKwS9dxx/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1741336988021" alt="Cursor AI" class="tech-logo">
-                </div>
+        <section class="tech-stack glass-card p-6 mb-8 md:mb-12">
+            <h3 class="tech-title text-xl font-semibold text-center mb-6">Tech Stack</h3>
+            <div class="tech-grid grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center">
+                <div class="tech-item" data-tooltip="HTML5"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="CSS3"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="JavaScript"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="C"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="C++"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="VS Code"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="Git"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="GitHub"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="Vercel"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg" alt="Vercel" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="Framer"> <img src="https://api.iconify.design/logos/framer.svg" alt="Framer" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="ChatGPT"> <img src="https://api.iconify.design/logos/openai-icon.svg" alt="ChatGPT (OpenAI)" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="GitLab"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="NPM"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg" alt="NPM" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="Figma"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" alt="Figma" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
+                <div class="tech-item" data-tooltip="Cursor AI"> <img src="https://cdn.brandfetch.io/ideKwS9dxx/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1741336988021" alt="Cursor AI" class="tech-logo h-10 w-10 transition-transform duration-200 hover:scale-110"> </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Projects Section Start -->
-        <div class="projects mt-8 mb-8 px-4">
+        <section class="projects mb-8 md:mb-12 px-4">
             <h2 class="text-2xl font-semibold text-center text-slate-200 mb-6">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Project 1: Apple Clone -->
                 <a href="https://applebyatul.vercel.app/" target="_blank" rel="noopener noreferrer"
-                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 hover:bg-slate-700/80 transition duration-300 ease-in-out transform hover:-translate-y-1">
-                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2"></span> Apple Clone</h3>
+                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:bg-slate-700/80 active:scale-95">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2" role="img" aria-label="Apple emoji">🍎</span> Apple Clone</h3>
                     <p class="text-slate-300 text-sm">A modern UI clone of the Apple website.</p>
                 </a>
-                <!-- Project 2: YouTube Clone -->
                 <a href="https://youtube-clone-atul.vercel.app/" target="_blank" rel="noopener noreferrer"
-                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 hover:bg-slate-700/80 transition duration-300 ease-in-out transform hover:-translate-y-1">
-                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2"></span> YouTube Clone</h3>
+                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:bg-slate-700/80 active:scale-95">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2" role="img" aria-label="Movie camera emoji">🎥</span> YouTube Clone</h3>
                     <p class="text-slate-300 text-sm">YouTube-inspired layout with search and video playback.</p>
                 </a>
-                <!-- Project 3: Amazon Clone -->
                 <a href="https://amazon-clone-atul-mu.vercel.app/" target="_blank" rel="noopener noreferrer"
-                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 hover:bg-slate-700/80 transition duration-300 ease-in-out transform hover:-translate-y-1">
-                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2"></span> Amazon Clone</h3>
+                   class="block p-6 bg-slate-800/70 backdrop-blur-md rounded-xl shadow-lg border border-white/10 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:bg-slate-700/80 active:scale-95">
+                    <h3 class="text-xl font-bold text-slate-100 mb-2"><span class="mr-2" role="img" aria-label="Shopping cart emoji">🛒</span> Amazon Clone</h3>
                     <p class="text-slate-300 text-sm">E-commerce clone with product listing and cart features.</p>
                 </a>
             </div>
-        </div>
-        <!-- Projects Section End -->
-    </div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html> 

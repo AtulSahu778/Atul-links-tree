@@ -1,61 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add fade-in animation to elements
-    const elements = document.querySelectorAll('.profile, .link-card');
-    elements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            element.style.transition = 'all 0.5s ease';
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, 100 * index);
-    });
-
-    // Add hover effect to profile picture
-    const profilePicture = document.getElementById('profile-picture');
-    profilePicture.addEventListener('mouseover', () => {
-        profilePicture.style.filter = 'brightness(1.2)';
-        profilePicture.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.5)';
-    });
-    profilePicture.addEventListener('mouseout', () => {
-        profilePicture.style.filter = 'brightness(1)';
-        profilePicture.style.boxShadow = '0 5px 15px var(--shadow-color)';
-    });
-
-    // Add click animation to link cards
-    const linkCards = document.querySelectorAll('.link-card');
-    linkCards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            // Allow the default link behavior to proceed
-            card.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                card.style.transform = 'translateY(-3px)';
-            }, 150);
-        });
-    });
-
-    // Add glow effect on hover for link cards
-    linkCards.forEach(card => {
-        card.addEventListener('mouseover', () => {
-            if (card.classList.contains('github')) {
-                card.style.boxShadow = '0 0 15px rgba(51, 51, 51, 0.5)';
-            } else if (card.classList.contains('linkedin')) {
-                card.style.boxShadow = '0 0 15px rgba(0, 119, 181, 0.5)';
-            } else if (card.classList.contains('twitter')) {
-                card.style.boxShadow = '0 0 15px rgba(29, 161, 242, 0.5)';
-            } else if (card.classList.contains('instagram')) {
-                card.style.boxShadow = '0 0 15px rgba(225, 48, 108, 0.5)';
-            }
-        });
-        
-        card.addEventListener('mouseout', () => {
-            card.style.boxShadow = 'var(--glass-shadow)';
-        });
-    });
+    // NOTE: Fade-in, profile picture hover, link card click/glow effects 
+    // are now handled by Tailwind CSS classes in index.html for better performance.
 
     // Add parallax effect to gradient spheres
     const spheres = document.querySelectorAll('.gradient-sphere');
     document.addEventListener('mousemove', (e) => {
+        // Debounce or throttle this listener if performance issues arise
         const { clientX, clientY } = e;
         const centerX = window.innerWidth / 2;
         const centerY = window.innerHeight / 2;
@@ -63,16 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
         spheres.forEach((sphere, index) => {
             const moveX = (clientX - centerX) * (0.02 + index * 0.01);
             const moveY = (clientY - centerY) * (0.02 + index * 0.01);
+            // Consider using requestAnimationFrame for smoother animation
             sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
     });
 
-    // Add smooth scroll behavior
+    // Add smooth scroll behavior for internal links (if any)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const href = this.getAttribute('href');
-            if (href !== '#') {
+            // Check if it's more than just a placeholder '#'
+            if (href.length > 1 && document.querySelector(href)) {
+                 e.preventDefault();
                 document.querySelector(href).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -82,17 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add 3D tilt effect to profile card
     const profileCard = document.querySelector('.profile');
-    profileCard.addEventListener('mousemove', (e) => {
-        const { left, top, width, height } = profileCard.getBoundingClientRect();
-        const x = (e.clientX - left) / width - 0.5;
-        const y = (e.clientY - top) / height - 0.5;
+    if (profileCard) { // Check if element exists
+        profileCard.addEventListener('mousemove', (e) => {
+            // Consider debouncing/throttling
+            const { left, top, width, height } = profileCard.getBoundingClientRect();
+            const x = (e.clientX - left) / width - 0.5;
+            const y = (e.clientY - top) / height - 0.5;
+            const tiltX = y * 5; // Max tilt 5 degrees
+            const tiltY = x * -5; // Max tilt 5 degrees (inverted for natural feel)
+            
+            // Consider using requestAnimationFrame
+            profileCard.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.03)`; // Added subtle scale on tilt
+        });
         
-        profileCard.style.transform = `perspective(1000px) rotateX(${y * 5}deg) rotateY(${x * 5}deg)`;
-    });
-    
-    profileCard.addEventListener('mouseleave', () => {
-        profileCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
+        profileCard.addEventListener('mouseleave', () => {
+            profileCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            profileCard.style.transition = 'transform 0.4s ease-out'; // Smooth transition back
+        });
+         // Reset transition after mouse leaves so it doesn't interfere with mousemove
+        profileCard.addEventListener('transitionend', () => {
+             profileCard.style.transition = '';
+        });
+    }
 
     // Add particle effect to background
     createParticles();
@@ -101,58 +64,52 @@ document.addEventListener('DOMContentLoaded', () => {
 // Create floating particles in the background
 function createParticles() {
     const background = document.querySelector('.background');
-    const particleCount = 50;
+    if (!background) return; // Exit if background element not found
+
+    const particleCount = 30; // Reduced count for performance
+    const fragment = document.createDocumentFragment(); // Use fragment for performance
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
+        particle.setAttribute('aria-hidden', 'true'); // Hide decorative particles
         particle.classList.add('particle');
         
-        // Random position
         const posX = Math.random() * 100;
         const posY = Math.random() * 100;
-        
-        // Random size
-        const size = Math.random() * 5 + 1;
-        
-        // Random animation duration
-        const duration = Math.random() * 20 + 10;
-        
-        // Random delay
-        const delay = Math.random() * 5;
-        
+        const size = Math.random() * 3 + 1; // Smaller size range
+        const duration = Math.random() * 20 + 15; // Longer duration range
+        const delay = Math.random() * 10; // Wider delay range
+        const opacity = Math.random() * 0.3 + 0.1; // Lower opacity range
+
         particle.style.cssText = `
             position: absolute;
             width: ${size}px;
             height: ${size}px;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, ${opacity});
             border-radius: 50%;
-            left: ${posX}%;
-            top: ${posY}%;
-            animation: float-particle ${duration}s infinite ease-in-out;
+            left: ${posX}vw; /* Use vw for better relative positioning */
+            top: ${posY}vh;  /* Use vh for better relative positioning */
+            animation: float-particle ${duration}s infinite ease-in-out alternate; /* Added alternate */
             animation-delay: ${delay}s;
-            opacity: ${Math.random() * 0.5 + 0.1};
+            pointer-events: none; /* Prevent interaction */
+            will-change: transform; /* Performance hint */
         `;
         
-        background.appendChild(particle);
+        fragment.appendChild(particle);
     }
     
-    // Add the float-particle animation to the stylesheet
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes float-particle {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
+    background.appendChild(fragment);
+    
+    // Check if animation style already exists before adding
+    if (!document.getElementById('particle-animation-style')) {
+        const style = document.createElement('style');
+        style.id = 'particle-animation-style';
+        style.textContent = `
+            @keyframes float-particle {
+                0% { transform: translate(0, 0); }
+                100% { transform: translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px); } /* Random end points for variety */
             }
-            25% {
-                transform: translateY(-20px) translateX(10px);
-            }
-            50% {
-                transform: translateY(0) translateX(20px);
-            }
-            75% {
-                transform: translateY(20px) translateX(10px);
-            }
-        }
-    `;
-    document.head.appendChild(style);
+        `;
+        document.head.appendChild(style);
+    }
 } 
